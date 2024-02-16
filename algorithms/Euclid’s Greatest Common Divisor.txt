@@ -1,0 +1,23 @@
+Euclid’s Algorithm
+Second, we can use Euclid’s algorithm to find the GCD. Euclid’s algorithm is not only efficient but also easy to understand and easy to implement using recursion in Java.
+
+Euclid’s method depends on two important theorems:
+
+First, if we subtract the smaller number from the larger number, the GCD doesn’t change – therefore, if we keep on subtracting the number we finally end up with their GCD
+Second, when the smaller number exactly divides the larger number, the smaller number is the GCD of the two given numbers.
+Note in our implementation that we’ll use modulo instead of subtraction since it’s basically many subtractions at a time:
+
+public int gcd(int a, int b) {
+    return b == 0 ? a : gcd(b, a % b);
+}
+
+or
+
+public int gcd(int a,int b) {
+    while (b !=0) {
+        int tmp = a%b;
+        a = b;
+        b = tmp;
+    }
+    return a;
+}
